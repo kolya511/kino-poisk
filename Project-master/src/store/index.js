@@ -1,28 +1,34 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import mainFilms from "./modules/mainFilms";
+
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-       mainFilms:[],
-       actionFilms:[],
-       comedysFilms:[],
-       detectivesFilms:[],
-       fantasticsFilms:[],
-       films:[],
-       horrorsFilms:[],
-       multFilmsFilms:[],
-       serialsFilms:[],
-       vesternsFilms:[],
-    },
-    mutations: {
+  state: {
 
-    },
-    actions:{
+  },
+  mutations: {
 
-    },
-    getters:{
-     
-    }
-  })
+  },
+  actions: {
+
+  },
+  getters: {
+
+  },
+  modules:{
+    mainFilms,
+    
+  /*   actionFilms,
+    comedysFilms,
+    detectivesFilms,
+    fantasticsFilms,
+    films,
+    horrorsFilms,
+    multFilmsFilms,
+    serialsFilms,
+    vesternsFilms, */
+  }
+})

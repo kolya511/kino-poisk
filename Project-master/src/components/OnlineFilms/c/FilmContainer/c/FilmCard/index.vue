@@ -1,14 +1,14 @@
 <template>
-  <div class="column">
-      <router-link :to="`/film-page/${filmData.id}`">
-    <span class="film-card">
-      <img :src="filmSrc" alt="film photo" class="film-photo" />
-      <span class="film-name">{{filmData.name}}</span>
-      <span class="film-rate">
-        <film-rate />
+  <div>
+    <router-link :to="`/film-page/${ filmData._id }`">
+      <span class="film-card">
+        <img src alt="film photo" class="film-photo" />
+        <span class="film-name">{{ filmData.filmName }}</span>
+        <span class="film-rate">
+          <film-rate />
+        </span>
+        <span>Год выпуска: {{ filmData.yearOfRelease }}</span>
       </span>
-      <span>Год выпуска: {{filmData.yearOfRelease}}</span>
-    </span>
     </router-link>
   </div>
 </template>
@@ -25,18 +25,17 @@ export default {
 
   props: {
     filmData: {
-      type: Array,
-      require: true
-    }   
-  },
-
-  computed: {
-    filmSrc() {
-      return require(`@/assets/onlineFilmsPhoto/${this.filmData.img}`);
+      type: Object,
+      required: true
     }
-  },
+  }
 
-}
+  /*   computed: {
+    filmSrc() {
+      return require(`@/assets/onlineFilmsPhoto/${filmData.img}`);
+    }
+  }, */
+};
 </script>
 
 <style lang="scss" scoped>

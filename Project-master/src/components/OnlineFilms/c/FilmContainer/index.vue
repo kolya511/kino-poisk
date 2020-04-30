@@ -2,15 +2,16 @@
   <div>
     <header-text />
 
-    <div class="columns is-multiline is-vcentered">
-      <film-card v-for="film in onlinFilms" :filmData="film" :key="film.id" />
+    <div v-for="film in getMainFilms" :key="film._id">
+      <film-card :filmData="film" />
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import FilmCard from "./c/FilmCard";
-import onlinFilms from "@/constants/onlinFilms.js";
+
 import HeaderText from "./c/HeaderText";
 
 export default {
@@ -21,13 +22,23 @@ export default {
     HeaderText
   },
 
-  data() {
-    return {
-      onlinFilms
-    };
+  computed: {
+    ...mapGetters(["getMainFilms"])
+  },
+
+  methods: {
+    ...mapActions(["saveFilm"])
+  },
+
+   mounted() {
+    this.saveFilm();
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.b{
+  display: inline;
+  
+}
 </style>
