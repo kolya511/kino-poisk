@@ -3,7 +3,9 @@
     <header-text />
 
     <div v-for="film in getMainFilms" :key="film._id">
-      <film-card :filmData="film" />
+      <div v-if="film.filmCategory == category">
+        <film-card :filmData="film" />
+      </div>
     </div>
   </div>
 </template>
@@ -17,28 +19,34 @@ import HeaderText from "./c/HeaderText";
 export default {
   name: "FilmContainer",
 
+  data() {
+    return {
+      film: "film"
+    };
+  },
+
   components: {
     FilmCard,
     HeaderText
   },
 
   computed: {
-    ...mapGetters(["getMainFilms"])
+    ...mapGetters(["getMainFilms"]),
+    category(){
+      return this.film
+    }
   },
 
   methods: {
     ...mapActions(["saveFilm"])
   },
 
-   mounted() {
+  mounted() {
     this.saveFilm();
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.b{
-  display: inline;
-  
-}
+
 </style>

@@ -33,8 +33,16 @@
         </b-navbar-item>
       </div>
       <div class="column">
-        <b-navbar-item class="menu-item-block" tag="router-link" :style="{active: isActiveClassColor, 'bacgroundColor': black}" :to="{ path: '/multfilms' }">
-          <span class="menu-items" :style="{active: isActiveClassColor, 'bacgroundColor': black}">Мультфильмы</span>
+        <b-navbar-item
+          class="menu-item-block"
+          tag="router-link"
+          :style="{active: isActiveClassColor, 'bacgroundColor': black}"
+          :to="{ path: '/multfilms' }"
+        >
+          <span
+            class="menu-items"
+            :style="{active: isActiveClassColor, 'bacgroundColor': black}"
+          >Мультфильмы</span>
         </b-navbar-item>
       </div>
     </template>
@@ -42,12 +50,9 @@
     <template slot="end">
       <b-navbar-item tag="div">
         <!-- -------------------------------buefy sign up---------------------------------------- -->
-        <sign-up />
 
-        <!------------------------------------------------------------------------------ -->
+        <addFilmAvtorisation />
 
-        <!-- -------------------------------buefy sign in---------------------------------------- -->
-        <sign-in />
         <!------------------------------------------------------------------------------ -->
 
         <div id="language">
@@ -62,16 +67,14 @@
 </template>
 
 <script>
-import SignUp from "../SignUp";
-import SignIn from "../SignIn";
 import SearchIcon from "@/assets/icons/search.svg";
+import addFilmAvtorisation from "@/components/addFilmAvtorisation";
 
 export default {
   name: "HeaderApp",
 
   components: {
-    SignUp,
-    SignIn
+    addFilmAvtorisation
   },
 
   data() {
@@ -86,10 +89,10 @@ export default {
     clickInSearchButton() {
       this.clickSearchButton++;
     },
-    changeColor(){
-      this.isActiveClassColor = true
+    changeColor() {
+      this.isActiveClassColor = true;
     }
-  },
+  }
 };
 </script>
 
@@ -127,14 +130,11 @@ export default {
 }
 .menu-items {
   color: rgb(0, 0, 0);
-  
 }
 .menu-item-block:hover {
   background-color: rgba(0, 0, 0, 0.164);
 }
 .menu-item-block {
   margin-left: 60px;
-  
 }
-
 </style>

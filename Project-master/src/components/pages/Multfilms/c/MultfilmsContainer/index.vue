@@ -1,30 +1,49 @@
 <template>
   <div>
     <header-text />
-    <div class="columns is-multiline is-vcentered">
-      <film-card v-for="film in MultFilms" :filmData="film" :key="film.id" />
+
+    <div v-for="film in getMainFilms" :key="film._id">
+      <div v-if="film.filmCategory == category">
+        <film-card :filmData="film" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import HeaderText from "./c/HeaderText";
+import { mapGetters, mapActions } from "vuex";
 import FilmCard from "./c/FilmCard";
-import MultFilms from "@/constants/MultFilms.js";
+
+import HeaderText from "./c/HeaderText";
 
 export default {
-  name: "FilmsContainer",
-
-  components: {
-    HeaderText,
-    FilmCard
-  },
+  name: "SerialContainer",
 
   data() {
     return {
-      MultFilms
+      film: "multfilm"
+    };
+  },
+
+  components: {
+    FilmCard,
+    HeaderText
+  },
+
+  computed: {
+    ...mapGetters(["getMainFilms"]),
+    category(){
+      return this.film
     }
   },
+
+  methods: {
+    ...mapActions(["saveFilm"])
+  },
+
+  mounted() {
+    this.saveFilm();
+  }
 };
 </script>
 

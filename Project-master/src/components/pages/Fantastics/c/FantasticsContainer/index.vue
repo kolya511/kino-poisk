@@ -1,32 +1,52 @@
 <template>
   <div>
     <header-text />
-    <div class="columns is-multiline is-vcentered">
-      <fantastics-card v-for="film in fantastics" :filmData="film" :key="film.id" />
+
+    <div v-for="film in getMainFilms" :key="film._id">
+      <div v-if="film.filmCategory == category">
+        <film-card :filmData="film" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import FilmCard from "./c/FilmCard";
+
 import HeaderText from "./c/HeaderText";
-import FantasticsCard from "./c/FantasticsCard";
-import fantastics from "@/constants/fantastics.js";
 
 export default {
-  name: "FantasticsContainer",
-
-  components: {
-    HeaderText,
-    FantasticsCard
-  },
+  name: "FilmContainer",
 
   data() {
     return {
-      fantastics
+      film: "fantastic"
     };
+  },
+
+  components: {
+    FilmCard,
+    HeaderText
+  },
+
+  computed: {
+    ...mapGetters(["getMainFilms"]),
+    category(){
+      return this.film
+    }
+  },
+
+  methods: {
+    ...mapActions(["saveFilm"])
+  },
+
+  mounted() {
+    this.saveFilm();
   }
 };
 </script>
 
 <style lang="scss" scoped>
+
 </style>

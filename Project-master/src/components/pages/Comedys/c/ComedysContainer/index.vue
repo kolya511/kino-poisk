@@ -1,32 +1,52 @@
 <template>
   <div>
     <header-text />
-    <div class="columns is-multiline is-vcentered">
-      <comedy-card v-for="film in comedys" :filmData="film" :key="film.id" />
+
+    <div v-for="film in getMainFilms" :key="film._id">
+      <div v-if="film.filmCategory == category">
+        <film-card :filmData="film" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import FilmCard from "./c/FilmCard";
+
 import HeaderText from "./c/HeaderText";
-import ComedyCard from "./c/ComedyCard";
-import comedys from "@/constants/comedys.js";
 
 export default {
-  name: "VesternContainer",
-
-  components: {
-    HeaderText,
-    ComedyCard
-  },
+  name: "FilmContainer",
 
   data() {
     return {
-      comedys
+      film: "comedy"
     };
+  },
+
+  components: {
+    FilmCard,
+    HeaderText
+  },
+
+  computed: {
+    ...mapGetters(["getMainFilms"]),
+    category(){
+      return this.film
+    }
+  },
+
+  methods: {
+    ...mapActions(["saveFilm"])
+  },
+
+  mounted() {
+    this.saveFilm();
   }
 };
 </script>
 
 <style lang="scss" scoped>
+
 </style>

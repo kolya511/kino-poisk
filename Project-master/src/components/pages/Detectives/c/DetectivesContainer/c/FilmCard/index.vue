@@ -15,6 +15,8 @@
 export default {
   name: "FilmCard",
 
+
+
   props: {
     filmData: {
       type: Object,
@@ -50,4 +52,5 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
 }
+</style>
 </style>

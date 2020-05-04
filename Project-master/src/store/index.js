@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import mainFilms from "./modules/mainFilms";
-
+import adminValidation from "./modules/adminValidation"
 
 Vue.use(Vuex);
 
@@ -20,15 +20,6 @@ export default new Vuex.Store({
   },
   modules:{
     mainFilms,
-    
-  /*   actionFilms,
-    comedysFilms,
-    detectivesFilms,
-    fantasticsFilms,
-    films,
-    horrorsFilms,
-    multFilmsFilms,
-    serialsFilms,
-    vesternsFilms, */
+    adminValidation
   }
 })

@@ -1,32 +1,52 @@
 <template>
   <div>
     <header-text />
-    <div class="columns is-multiline is-vcentered">
-      <action-film-card v-for="film in actionFilms" :filmData="film" :key="film.id" />
+
+    <div v-for="film in getMainFilms" :key="film._id">
+      <div v-if="film.filmCategory == category">
+        <film-card :filmData="film" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import FilmCard from "./c/FilmCard";
+
 import HeaderText from "./c/HeaderText";
-import ActionFilmCard from "./c/ActionFilmCard";
-import actionFilms from "@/constants/actionFilms.js";
 
 export default {
-  name: "ActionFilmsContainer",
-
-  components: {
-    HeaderText,
-    ActionFilmCard
-  },
+  name: "ActionContainer",
 
   data() {
     return {
-      actionFilms
+      film: "action"
     };
+  },
+
+  components: {
+    FilmCard,
+    HeaderText
+  },
+
+  computed: {
+    ...mapGetters(["getMainFilms"]),
+    category(){
+      return this.film
+    }
+  },
+
+  methods: {
+    ...mapActions(["saveFilm"])
+  },
+
+  mounted() {
+    this.saveFilm();
   }
 };
 </script>
 
 <style lang="scss" scoped>
+
 </style>

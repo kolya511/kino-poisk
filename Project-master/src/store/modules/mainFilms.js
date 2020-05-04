@@ -42,7 +42,7 @@ export default {
                     else
                         throw new Error("Fatch faild")
                 })
-        }
+        },
     },
     getters: {
         getMainFilms: state => state.mainFilms

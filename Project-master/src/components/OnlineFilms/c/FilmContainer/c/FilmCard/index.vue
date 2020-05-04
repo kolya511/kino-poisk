@@ -1,12 +1,10 @@
 <template>
   <div>
-    <router-link :to="`/film-page/${ filmData._id }`">
+    <router-link :to="`/film-page/${ filmData._id}`">
       <span class="film-card">
-        <img src alt="film photo" class="film-photo" />
+        <img :src="filmData.imgSrc" alt="film photo" class="film-photo" />
         <span class="film-name">{{ filmData.filmName }}</span>
-        <span class="film-rate">
-          <film-rate />
-        </span>
+
         <span>Год выпуска: {{ filmData.yearOfRelease }}</span>
       </span>
     </router-link>
@@ -14,14 +12,8 @@
 </template>
 
 <script>
-import FilmRate from "@/components/FilmRate";
-
 export default {
   name: "FilmCard",
-
-  components: {
-    FilmRate
-  },
 
   props: {
     filmData: {
@@ -29,12 +21,6 @@ export default {
       required: true
     }
   }
-
-  /*   computed: {
-    filmSrc() {
-      return require(`@/assets/onlineFilmsPhoto/${filmData.img}`);
-    }
-  }, */
 };
 </script>
 
@@ -49,15 +35,16 @@ export default {
   color: black;
   margin: 20px;
   border: 0.5px solid rgb(207, 207, 207);
+  -webkit-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.75);
 }
 .film-photo {
   width: 240px;
   height: 290px;
   margin-top: 5px;
 }
-.film-rate {
-  background-color: rgb(0, 0, 0);
-}
+
 .film-card-block {
   display: flex;
   flex-wrap: wrap;

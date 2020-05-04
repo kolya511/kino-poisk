@@ -1,24 +1,29 @@
 <template>
   <div>
     <div class="film-genre">
-      <router-link to="actions" style="color: white">
+      <b-navbar-item tag="router-link" :to="{ path: '/actions' }">
         <span class="gener-menu">Боевики</span>
-      </router-link>
-      <router-link to="vesterns" style="color: white">
+      </b-navbar-item>
+
+      <b-navbar-item tag="router-link" :to="{ path: '/vesterns' }">
         <span class="gener-menu">Вестерны</span>
-      </router-link>
-      <router-link to="detectives" style="color: white">
-      <span class="gener-menu">Детективы</span>
-      </router-link>
-      <router-link to="comedys" style="color: white">
-      <span class="gener-menu">Комедии</span>
-       </router-link>
-       <router-link to="fantastics" style="color: white">
-      <span class="gener-menu">Фантастические</span>
-      </router-link>
-      <router-link to="horrors" style="color: white">
-      <span class="gener-menu">Ужасы</span>
-      </router-link>
+      </b-navbar-item>
+
+      <b-navbar-item tag="router-link" :to="{ path: '/detectives' }">
+        <span class="gener-menu">Детективы</span>
+      </b-navbar-item>
+
+      <b-navbar-item tag="router-link" :to="{ path: '/comedys' }">
+        <span class="gener-menu">Комедии</span>
+      </b-navbar-item>
+
+      <b-navbar-item tag="router-link" :to="{ path: '/fantastics' }">
+        <span class="gener-menu">Фантастические</span>
+      </b-navbar-item>
+
+      <b-navbar-item tag="router-link" :to="{ path: '/horrors' }">
+        <span class="gener-menu">Ужасы</span>
+      </b-navbar-item>
     </div>
   </div>
 </template>
@@ -32,13 +37,13 @@ export default {
 <style scoped>
 .film-genre {
   display: flex;
-  height: 70px;
+  height:70px;
   background-color: rgb(255, 255, 255);
   align-items: center;
   justify-content: space-around;
-  border: 1px solid rgb(34, 34, 34);;
+  border: 1px solid rgb(34, 34, 34);
 }
-.gener-menu{
+.gener-menu {
   color: black;
 }
 .gener-menu:hover {
@@ -47,7 +52,7 @@ export default {
 @media screen and (max-width: 767px) {
   .film-genre {
     display: flex;
-    height: 100px;
+    height: 125px;
     background-color: rgb(255, 255, 255);
     color: white;
     flex-wrap: wrap;
@@ -55,6 +60,5 @@ export default {
   .gener-menu {
     margin: 15px;
   }
- 
 }
 </style>
