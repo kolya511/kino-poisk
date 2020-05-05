@@ -13,7 +13,6 @@
       <option value="serial">Сериал</option>
       <option value="multfilm">Мультфильм</option>
       <option value="action">Боевик</option>
-      <option value="action">Боевик</option>
       <option value="vestern">Вестерн</option>
       <option value="detective">Детектив</option>
       <option value="comedy">Комедия</option>

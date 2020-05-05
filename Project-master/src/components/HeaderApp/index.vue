@@ -15,16 +15,24 @@
         />
 
         <div v-if="clickSearchButton % 2 == true" class="search-block">
-          <input type="search" placeholder="search" class="inp-search" />
+          <input type="search" placeholder="search" v-model="inpValue" class="inp-search" />
+          <router-link :to="`/search-film/${inpValue}`">
           <img :src="SearchIcon" alt="search" class="btn-search" />
+          </router-link>
         </div>
       </div>
+
+      <!-- -------------------------------buefy sign up---------------------------------------- -->
+      <div v-if="clickSearchButton % 2 == false" class="add-film-btn">
+        <addFilmAvtorisation />
+      </div>
+      <!------------------------------------------------------------------------------ -->
     </template>
 
     <template slot="start" class="menu-block columns">
       <div class="column">
         <b-navbar-item class="menu-item-block" tag="router-link" :to="{ path: '/films' }">
-          <span class="menu-items" @click="changeColor()">Фильмы</span>
+          <span class="menu-items">Фильмы</span>
         </b-navbar-item>
       </div>
       <div class="column">
@@ -33,28 +41,14 @@
         </b-navbar-item>
       </div>
       <div class="column">
-        <b-navbar-item
-          class="menu-item-block"
-          tag="router-link"
-          :style="{active: isActiveClassColor, 'bacgroundColor': black}"
-          :to="{ path: '/multfilms' }"
-        >
-          <span
-            class="menu-items"
-            :style="{active: isActiveClassColor, 'bacgroundColor': black}"
-          >Мультфильмы</span>
+        <b-navbar-item class="menu-item-block" tag="router-link" :to="{ path: '/multfilms' }">
+          <span class="menu-items">Мультфильмы</span>
         </b-navbar-item>
       </div>
     </template>
 
     <template slot="end">
       <b-navbar-item tag="div">
-        <!-- -------------------------------buefy sign up---------------------------------------- -->
-
-        <addFilmAvtorisation />
-
-        <!------------------------------------------------------------------------------ -->
-
         <div id="language">
           Язык
           <select title="language">
@@ -81,16 +75,13 @@ export default {
     return {
       clickSearchButton: 0,
       SearchIcon,
-      isActiveClassColor: false
+      inpValue: null
     };
   },
 
   methods: {
     clickInSearchButton() {
       this.clickSearchButton++;
-    },
-    changeColor() {
-      this.isActiveClassColor = true;
     }
   }
 };
@@ -122,11 +113,18 @@ export default {
   align-items: center;
 }
 
+.inp-search {
+  width: 130px;
+  margin-left: 15px;
+}
+
 .btn-search {
   width: 23px;
   height: 23px;
   border: 1px solid rgb(0, 0, 0);
   cursor: pointer;
+  margin-right: 10px;
+  margin-top: 6px;
 }
 .menu-items {
   color: rgb(0, 0, 0);
@@ -136,5 +134,35 @@ export default {
 }
 .menu-item-block {
   margin-left: 60px;
+}
+
+.add-film-btn {
+  display: flex;
+  align-items: center;
+  margin-left: 9%;
+}
+
+@media screen and (max-width: 480px) {
+
+  .inp-search {
+    width: 100px;
+    margin-left: 0px;
+  }
+
+  .add-film-btn {
+    margin-left: 0px;
+    margin-left: 0%;
+  }
+
+  .btn-search {
+    margin-right: 0px;
+  }
+}
+
+
+@media screen and (max-width: 350px) {
+.search-block{
+  visibility: hidden;
+}
 }
 </style>

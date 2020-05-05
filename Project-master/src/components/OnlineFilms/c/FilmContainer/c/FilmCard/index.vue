@@ -2,7 +2,7 @@
   <div>
     <router-link :to="`/film-page/${ filmData._id}`">
       <span class="film-card">
-        <img :src="filmData.imgSrc" alt="film photo" class="film-photo" />
+        <img :src="filmData.imgSrc " alt="film photo" class="film-photo" />
         <span class="film-name">{{ filmData.filmName }}</span>
 
         <span>Год выпуска: {{ filmData.yearOfRelease }}</span>

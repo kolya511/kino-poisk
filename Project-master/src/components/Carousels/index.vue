@@ -29,7 +29,7 @@ export default {
         { slide: require("@/assets/carouselSlides/Django.png"), id: 5 }
       ]
     };
-  }
+  },
 };
 </script>
 
@@ -38,7 +38,7 @@ export default {
   margin: 0 auto;  
 }
 .carousel-border{
-  background-color: rgb(194, 194, 194);
+  background-color: rgb(218, 216, 216);
 
 }
 </style>

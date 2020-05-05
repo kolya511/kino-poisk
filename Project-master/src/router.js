@@ -14,11 +14,14 @@ import Fantastics from "./components/pages/Fantastics";
 import Horrors from "./components/pages/Horrors";
 import FilmPage from "./components/FilmPage";
 import CarouselFilmPage from "./components/CarouselFilmPage";
+import SearchFilm from "./components/SearchFilm";
+
 
 Vue.use(VueRouter)
 
 const routes = [
     { path: '/add-film', component: AddFilm },
+    { path: '/search-film/:name', component: SearchFilm },
     { path: '/', component: OnlineFilms },
     { path: '/films', component: Films },
     { path: '/serials', component: Serials },

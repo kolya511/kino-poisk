@@ -16,7 +16,15 @@
 
             <pre class="film-description"><div>Описание:</div>{{film.description}}</pre>
           </div>
+
         </div>
+
+          <div class="video-player">
+            <video width="700" controls>
+              <source src="@/assets/carouselVideo/avengersVideo.mp4" type="video/mp4" />Your browser does not support HTML video.
+            </video>
+          </div>
+
       </div>
     </div>
   </div>
@@ -52,6 +60,7 @@ export default {
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
+   align-items: flex-start;
 }
 
 .film-block {
@@ -71,11 +80,13 @@ export default {
   margin-top: 10px;
   width: 240px;
   height: 290px;
+  display: flex;
+  justify-content: center;
 }
 
 .film-img {
-  width: 200px;
-  height: 250px;
+  width: 230px;
+  height: 270px;
 }
 
 .film-name {
@@ -96,6 +107,13 @@ export default {
   color: black;
   font-size: 16px;
   width: 600px;
+  height: 400px;
+}
+
+.video-player {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
 }
 
 @media screen and (max-width: 895px) {
